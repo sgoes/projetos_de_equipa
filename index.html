@@ -343,7 +343,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -367,6 +367,42 @@
                                             </tr>
                                         </thead>
                                         <tbody id="internalProjectsTable">
+                                            <!-- Os dados serão carregados aqui via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabela de Tecnologias -->
+                <div class="row mb-4">
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-tools me-2"></i>Tecnologias Utilizadas
+                                    </h5>
+                                    <button class="btn btn-outline-primary btn-sm collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tabela-tecnologias" aria-expanded="false" aria-controls="tabela-tecnologias">
+                                        <i class="bi bi-chevron-right collapse-icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body collapse" id="tabela-tecnologias">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Tecnologia</th>
+                                                <th>Tipo</th>
+                                                <th>Licenciamento</th>
+                                                <th>Nº Projetos</th>
+                                                <th>Observações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="technologiesTable">
                                             <!-- Os dados serão carregados aqui via JavaScript -->
                                         </tbody>
                                     </table>
@@ -489,45 +525,6 @@
             </div>
 
 
-        </div>
-        
-        <!-- Tabela de Tecnologias -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="text-primary mb-4">
-                        <i class="bi bi-tools me-2"></i>Tecnologias Utilizadas
-                    </h3>
-                    <button class="btn btn-outline-primary btn-sm collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tabela-tecnologias" aria-expanded="false" aria-controls="tabela-tecnologias">
-                        <i class="bi bi-chevron-right collapse-icon"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-12 collapse" id="tabela-tecnologias">
-                <div class="card">
-                    <div class="card-header bg-white">
-                        <h5 class="card-title mb-0">Inventário de Tecnologias e Licenciamento</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>Tecnologia</th>
-                                        <th>Tipo</th>
-                                        <th>Licenciamento</th>
-                                        <th>Nº Projetos</th>
-                                        <th>Observações</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="technologiesTable">
-                                    <!-- Os dados serão carregados aqui via JavaScript -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         
         <!-- Lista de projetos -->
@@ -828,7 +825,7 @@
             },
             {
                 id: 20,
-                name: "SAGG",
+                name: "SAAG",
                 status: "manter",
                 originalStatus: "concluído",
                 description: "Ferramenta de acompanhamento e coordenação da ação política. Integra uma base de dados única e central que assegura informação relativa ao grau de cumprimento das medidas do Programa do Governo e Ação Complementar.",
@@ -838,7 +835,7 @@
             },
             {
                 id: 19,
-                name: "Ecosistema Colaborativo Organização Sociedade Civi",
+                name: "Ecosistema Colaborativo Organização Sociedade Civil",
                 status: "redesenhar",
                 originalStatus: "planeamento",
                 description: "Projeto que visa fortalecer a articulação entre o Estado, a Administração Pública e a sociedade civil, através da criação de redes colaborativas e canais estruturados de diálogo, potenciados pelo uso estratégico da tecnologia.",
