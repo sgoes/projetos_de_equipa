@@ -91,7 +91,12 @@
         <!-- Abas de navegação -->
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
+                <button class="nav-link active" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true">
+                    <i class="bi bi-bar-chart-fill me-1"></i> Estatísticas
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false">
                     <i class="bi bi-kanban-fill me-1"></i> Todos os Projetos
                 </button>
             </li>
@@ -110,16 +115,58 @@
                     <i class="bi bi-person-badge-fill me-1"></i> Fichas Individuais
                 </button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="false">
-                    <i class="bi bi-bar-chart-fill me-1"></i> Estatísticas
-                </button>
-            </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
+            <!-- ABA ESTATÍSTICAS -->
+            <div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">
+                                    <i class="bi bi-pie-chart me-2"></i>Distribuição por Estado - Projetos Externos
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="externalStatusChart" width="800" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">
+                                    <i class="bi bi-list-ul me-2"></i>Lista Detalhada dos Projetos Externos
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Projeto</th>
+                                                <th>Proposta</th>
+                                                <th>Ponto de Situação</th>
+                                                <th>Tecnologias</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="externalProjectsTable">
+                                            <!-- Os dados serão carregados aqui via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ABA TODOS OS PROJETOS -->
-            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+            <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <!-- Filtros e pesquisa -->
                 <div class="row mb-4">
                     <div class="col-md-8">
@@ -229,52 +276,6 @@
                 </div>
             </div>
 
-            <!-- ABA ESTATÍSTICAS -->
-            <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">
-                                    <i class="bi bi-pie-chart me-2"></i>Distribuição por Estado - Projetos Externos
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="externalStatusChart" width="800" height="400"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">
-                                    <i class="bi bi-list-ul me-2"></i>Lista Detalhada dos Projetos Externos
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
-                                            <tr>
-                                                <th>Projeto</th>
-                                                <th>Estado Atual</th>
-                                                <th>Ponto de Situação</th>
-                                                <th>Tecnologias</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="externalProjectsTable">
-                                            <!-- Os dados serão carregados aqui via JavaScript -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         
         <!-- Estatísticas rápidas -->
@@ -387,7 +388,7 @@
                 id: 4,
                 name: "Google Trends",
                 status: "execução",
-                description: "Dashboard para monitorizar, em tempo quase real, os principais tópicos pesquisados no Google através da API do SerpAPI.",
+                description: "Dashboard para monitorizar, em tempo quase real, os principais tópicos pesquisados no Google.",
                 technologies: ["Microsoft Fabric", "Power BI", "SerpAPI", "Cursor AI PRO", "Chat GPT PRO"],
                 link: "https://app.fabric.microsoft.com/view?r=eyJrIjoiMWY5YzY0NzUtNzJmMi00MmJlLWI2YzYtODE1NDdhZjA5ZWRlIiwidCI6ImE3Y2IzMmY4LTQwOTgtNDJjMy1iMGMxLThiYWNiY2ZkZjdmNSIsImMiOjh9"
             },
@@ -410,11 +411,11 @@
             },
             {
                 id: 7,
-                name: "Barómetro Mediático",
+                name: "Relatório Mediático",
                 status: "piloto",
-                description: "Produção de barómetro mediático que integra tendências de pesquisa, inteligência preditiva e curadoria estruturada.",
+                description: "Produção de relatório mediático, a pedido, que integra diversas fontes (imprensa, redes sociais, web), tendências de pesquisa, inteligência preditiva e curadoria estruturada.",
                 technologies: ["NewsWhip", "Inoreader", "Google Trends", "SharePoint", "Canva Pro"],
-                link: "https://www.canva.com/design/DAGgx3aJBoM/L7t27_IKUONMm0j8m1K-mw/view"
+                link: "https://www.canva.com/design/DAGgx3aJBoM/LDrhCbh6hkPk4zgdv-CTww/view?embed"
             },
             /*
             {
@@ -430,7 +431,7 @@
                 id: 9,
                 name: "Media Clipping - Inoreader",
                 status: "execução",
-                description: "Implementação de uma plataforma de curadoria avançada de conteúdos que agrega fluxos RSS, newsletters e alertas temáticos.",
+                description: "Disponibilização de uma plataforma de curadoria avançada de conteúdos da imprensa nacional e internacional adaptável a temáticas e áreas governativas.",
                 technologies: ["Inoreader"],
                 link: "https://sgpcm.sharepoint.com/sites/MediaClippingXXIVGoverno/SitePages/Coes%C3%A3o.aspx"
             },
@@ -575,7 +576,7 @@
                 name: "Google Trends",
                 status: "manter",
                 originalStatus: "execução",
-                description: "Dashboard para monitorizar, em tempo quase real, os principais tópicos pesquisados no Google através da API do SerpAPI.",
+                description: "Dashboard para monitorizar, em tempo quase real, os principais tópicos pesquisados no Google.",
                 technologies: ["Microsoft Fabric", "Power BI", "SerpAPI", "Cursor AI PRO", "Chat GPT PRO"],
                 link: "https://app.fabric.microsoft.com/view?r=eyJrIjoiMWY5YzY0NzUtNzJmMi00MmJlLWI2YzYtODE1NDdhZjA5ZWRlIiwidCI6ImE3Y2IzMmY4LTQwOTgtNDJjMy1iMGMxLThiYWNiY2ZkZjdmNSIsImMiOjh9"
             },
@@ -584,7 +585,7 @@
                 name: "Media Clipping - Inoreader",
                 status: "manter",
                 originalStatus: "execução",
-                description: "Implementação de uma plataforma de curadoria avançada de conteúdos que agrega fluxos RSS, newsletters e alertas temáticos.",
+                description: "Disponibilização de uma plataforma de curadoria avançada de conteúdos da imprensa nacional e internacional adaptável a temáticas e áreas governativas.",
                 technologies: ["Inoreader"],
                 link: "https://sgpcm.sharepoint.com/sites/MediaClippingXXIVGoverno/SitePages/Coes%C3%A3o.aspx"
             },
@@ -599,12 +600,12 @@
             },
             {
                 id: 7,
-                name: "Barómetro Mediático",
+                name: "Relatório Mediático",
                 status: "manter",
                 originalStatus: "piloto",
-                description: "Produção de barómetro mediático que integra tendências de pesquisa, inteligência preditiva e curadoria estruturada.",
+                description: "Produção de relatório mediático, a pedido, que integra diversas fontes (imprensa, redes sociais, web), tendências de pesquisa, inteligência preditiva e curadoria estruturada.",
                 technologies: ["NewsWhip", "Inoreader", "Google Trends", "SharePoint", "Canva Pro"],
-                link: "https://www.canva.com/design/DAGgx3aJBoM/L7t27_IKUONMm0j8m1K-mw/view"
+                link: "https://www.canva.com/design/DAGgx3aJBoM/LDrhCbh6hkPk4zgdv-CTww/view?embed"
             },
             {
                 id: 14,
@@ -628,8 +629,8 @@
             {
                 id: 19,
                 name: "Ecossistema Colaborativo das Organizações da Sociedade Civil",
-                status: "manter",
-                originalStatus: "execução",
+                status: "redesenhar",
+                originalStatus: "planeamento",
                 description: "Projeto que visa fortalecer a articulação entre o Estado, a Administração Pública e a sociedade civil, através da criação de redes colaborativas e canais estruturados de diálogo, potenciados pelo uso estratégico da tecnologia.",
                 technologies: ["Plataforma digital interoperável", "Dashboards inteligentes", "Sistemas de partilha de dados"],
                 methodologies: ["Mapeamento de OSCs", "Matriz de priorização", "Governança colaborativa", "Co-criação de conhecimento"],
@@ -649,7 +650,7 @@
                 id: 11,
                 name: "Pulsar",
                 status: "redesenhar",
-                originalStatus: "piloto",
+                originalStatus: "planeamento",
                 description: "Ferramenta de agregação de informação para suporte à tomada de decisão política, observação de tendências e resultados de políticas.",
                 technologies: ["Microsoft Fabric", "Power Automate", "Python", "Power BI", "SharePoint", "Teams"],
                 link: ""
